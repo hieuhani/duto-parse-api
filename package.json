@@ -1,0 +1,10 @@
+{
+  "name": "duto",
+  "description": "parse-server for duto",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "parse-server": "^3.9.0"
+  }
+}

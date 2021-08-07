@@ -1,0 +1,7 @@
+{
+  "appId": "tgpHKxu7ddxA5KpvHr8VyvLOwrXpTtBjLRu9ItbJ",
+  "masterKey": "qnlEneT3sdjhXkJtGOAoK6nCyqSgxZmzwhfPa8Uk",
+  "appName": "duto",
+  "cloud": "./cloud/main",
+  "databaseURI": "mongodb://127.0.0.1:27017/parse"
+}
