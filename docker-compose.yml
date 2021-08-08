@@ -1,0 +1,30 @@
+version: '3'
+
+volumes:
+  mongodb_data: {}
+  redis_data: {}
+
+services:
+  api:
+    build: .
+    ports:
+      - 1337:1337
+    env_file:
+      - .env
+    depends_on:
+      - mongodb
+      - redis
+
+  mongodb:
+    image: bitnami/mongodb:4.4
+    volumes:
+      - 'mongodb_data:/bitnami/mongodb'
+
+  redis:
+    image: 'bitnami/redis:latest'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - 'redis_data:/bitnami'
+
+

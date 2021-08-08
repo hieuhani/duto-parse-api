@@ -1,15 +1,18 @@
 const express = require('express');
 const { ParseServer } = require('parse-server');
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 const config = {
-  appId: 'tgpHKxu7ddxA5KpvHr8VyvLOwrXpTtBjLRu9ItbJ',
-  masterKey: 'qnlEneT3sdjhXkJtGOAoK6nCyqSgxZmzwhfPa8Uk',
+  appId: process.env.PARSE_APP_ID,
+  masterKey: process.env.PARSE_MASTER_KEY,
   appName: 'duto',
   cloud: './cloud/main',
-  databaseURI: 'mongodb://127.0.0.1:27017/parse',
+  databaseURI: process.env.DATABASE_URI,
   liveQuery: {
     classNames: ['Order'],
-    redisURL: 'redis://localhost:6379',
+    redisURL: process.env.REDIS_URI,
   },
 };
 
@@ -28,5 +31,5 @@ httpServer.listen(1338, function() {
 });
 
 ParseServer.createLiveQueryServer(httpServer, {
-  redisURL: 'redis://localhost:6379',
+  redisURL: process.env.REDIS_URI,
 });

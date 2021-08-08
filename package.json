@@ -5,6 +5,7 @@
     "start": "node src/server.js"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "parse-server": "^3.9.0"
   }
 }
